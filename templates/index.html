@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Python Devcontainer Web App</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Python Flask Web App</h1>
+      <p class="subtitle">Running inside a Dev Container</p>
+
+      <h2>Tasks</h2>
+      <ul id="task-list">
+        {% for task in tasks %}
+          <li class="{{ 'done' if task.done else '' }}">{{ task.title }}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="form-row">
+        <input id="task-input" placeholder="Add a task..." />
+        <button onclick="addTask()">Add</button>
+      </div>
+
+      <button class="secondary" onclick="checkHealth()">Check API Health</button>
+      <pre id="output"></pre>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
